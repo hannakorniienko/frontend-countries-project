@@ -3,15 +3,18 @@ export interface Country {
         official: string
     },
     currencies: {
-        name: string
+        [key: string]: {
+            name: string
+        }
     },
     capital: string[],
-    region: string[],
+    region: string,
     languages: {
-        eng: string
+        [key: string]: string
     },
     flags: {
         png: string,
         svg: string
     },
+    isFav: boolean
 }

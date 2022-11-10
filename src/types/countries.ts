@@ -7,7 +7,7 @@ export interface Country {
             name: string
         }
     },
-    capital: string[],
+    capital?: string[],
     region: string,
     languages: {
         [key: string]: string
@@ -16,5 +16,6 @@ export interface Country {
         png: string,
         svg: string
     },
+    population: number,
     isFav: boolean
 }

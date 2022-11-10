@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
-import { countriesReducer } from './reducers/countries'
+import { countriesReducer} from './reducers/countries'
 
 export const store = configureStore({
     reducer:{

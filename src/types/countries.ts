@@ -1,6 +1,6 @@
 export interface Country {
     name: {
-        official: string
+        common: string
     },
     currencies: {
         [key: string]: {
@@ -17,5 +17,11 @@ export interface Country {
         svg: string
     },
     population: number,
+    continents?: string[],
+    area: number,
     isFav: boolean
 }
+
+export type Props = {
+    countries: Country[]
+  }

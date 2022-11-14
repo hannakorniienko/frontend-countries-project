@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import Countries from '../components/Countries'
-import { remove } from '../redux/reducers/favCountries'
-
+import React from 'react'
+import { useAppSelector } from '../redux/hooks'
 
 const FavCountries = () => {
-    const dispatch = useAppDispatch()
     const {countries} = useAppSelector((state) => state.favCountries)
     return (
-        <li></li>
-    )
+        <div>{countries.map(item => (
+            <ul key={item.name.common}>
+                <li>{item.name.common}</li>
+            </ul>
+        ))}
+        </div>)
+    
 }
 
 export default FavCountries
+

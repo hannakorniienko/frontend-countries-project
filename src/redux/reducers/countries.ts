@@ -22,8 +22,11 @@ const countriesSlice = createSlice({
     name: "countries",
     initialState,
     reducers:{
-        sort: (state, action: PayloadAction<string>) => {
-            state.countries = state.countries.sort((a, b) => (a>b) ? 1 : -1)
+        sortbyName: (state) => {
+            state.countries = state.countries.sort((a, b) => (a.name.common>b.name.common) ? 1 : -1)
+        },
+        sortbyPopulation: (state) => {
+            state.countries = state.countries.sort((a, b) => (a.population>b.population) ? 1 : -1)
         },
         search: (state, action: PayloadAction<string>) =>{
             state.filtered = []
@@ -86,4 +89,4 @@ export const fetchCountry = createAsyncThunk(
 
 // export default countriesSlice.reducer
 export const countriesReducer = countriesSlice.reducer
-export const {sort, search} = countriesSlice.actions
+export const {sortbyName, sortbyPopulation, search} = countriesSlice.actions

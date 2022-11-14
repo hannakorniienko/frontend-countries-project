@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { sort } from '../redux/reducers/countries'
+import { sortbyName, sortbyPopulation } from '../redux/reducers/countries'
 import { add } from '../redux/reducers/favCountries'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { Props } from '../types/countries'
@@ -14,9 +14,9 @@ const Countries = ({countries}: Props) => {
           <thead>
             <tr>
               <th>Flag</th>
-              <th>Name</th>
+              <th onClick={() => dispatch(sortbyName())}>Name</th>
               <th>Capital</th>
-              <th>Population</th>
+              <th onClick={() => dispatch(sortbyPopulation())}>Population</th>
               <th>Continent</th>
               <th>Currencies</th>
               <th>Languages</th>
@@ -43,12 +43,8 @@ const Countries = ({countries}: Props) => {
                 <td>{Object.values(item.languages).map((item: any) => (
                   <p key={item}>{item}</p>
                 ))}</td>
-                <td>
-                  <button onClick={() => {
-                    dispatch(add(item))
-                  }
-                  }>
-                  &hearts;</button></td>
+                <td><button onClick={() => {dispatch(add(item))}}>&hearts;</button>
+                </td>
               </tr>
             ))}
           </tbody>

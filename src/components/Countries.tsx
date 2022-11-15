@@ -6,7 +6,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -14,7 +13,7 @@ import Stack from '@mui/material/Stack';
 
 import { sortbyName, sortbyPopulation } from '../redux/reducers/countries'
 import { add } from '../redux/reducers/favCountries'
-import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { useAppDispatch } from '../redux/hooks'
 import { Props } from '../types/countries'
 import '../styles/countries.css'
 

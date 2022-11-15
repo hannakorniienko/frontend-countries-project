@@ -18,22 +18,11 @@ import { Props } from '../types/countries'
 import '../styles/countries.css'
 
 const Countries = ({countries}: Props) => {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
   const dispatch = useAppDispatch()
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', }}>
       <TableContainer>
-        <Table stickyHeader aria-label="sticky table">
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell>Flag</TableCell>
@@ -73,6 +62,4 @@ const Countries = ({countries}: Props) => {
 
 export default Countries
 
-function dispatch(arg0: { payload: undefined; type: "countriesSlice/sortByName" }): void {
-    throw new Error('Function not implemented.')
-}
+

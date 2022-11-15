@@ -1,4 +1,15 @@
 ul {
     list-style-type: none;
+    font-weight: bold;
 }
 
+ul ul {
+    font-weight: initial;
+    list-style-type: circle;
+}
+
+#single-country {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

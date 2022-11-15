@@ -22,7 +22,7 @@ const SingleCountry = () => {
     }
 
   return (
-    <div>
+    <div id='single-country'>
         <ul>
             <li><img style={{ width: 100 }} src={country[0].flags.png} alt="flag" /></li>
             <li>Country:</li>

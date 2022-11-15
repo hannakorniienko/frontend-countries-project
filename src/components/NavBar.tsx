@@ -33,7 +33,7 @@ const NavBar = () => {
 
   return (
     <AppBar position="static" sx={{backgroundColor: '#2E8B57'}}>
-    <Container maxWidth="xl">
+    <Container>
       <Toolbar disableGutters>
         <HomeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
         <Typography
@@ -43,7 +43,7 @@ const NavBar = () => {
           href="/bof-frontend-project-basic"
           sx={{
             mr: 2,
-            display: { xs: 'none', md: 'flex' },
+            display: 'flex',
             fontFamily: 'monospace',
             fontWeight: 700,
             letterSpacing: '.3rem',
@@ -53,7 +53,7 @@ const NavBar = () => {
         >
           COUNTRIES
         </Typography>
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+        <Box sx={{ flexGrow: 1, display: 'flex' }}>
             <Button
               onClick={handleCloseNavMenu}
               href="/bof-frontend-project-basic/fav"

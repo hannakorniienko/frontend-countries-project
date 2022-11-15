@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
+
 import { fetchCountry } from '../redux/reducers/countries'
+import '../styles/singleCountry.css'
 
 const SingleCountry = () => {
     const {name} = useParams()

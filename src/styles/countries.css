@@ -1,0 +1,12 @@
+#sort-btn{
+    background-color: hsla(0, 0%, 100%, 0); 
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#sort-btn:hover{
+    font-weight: bolder;
+}

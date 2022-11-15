@@ -4,8 +4,7 @@ import TextField from '@mui/material/TextField';
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { fetchCountries, search } from '../redux/reducers/countries'
 import Countries from '../components/Countries'
-import Box from '@mui/material/Box';
-import '../styles/home.css';
+import { Stack } from '@mui/material';
 
 const Home = () => {
     const dispatch = useAppDispatch()
@@ -17,7 +16,7 @@ const Home = () => {
     let renderedCountries = filtered.length > 0 ? filtered : countries
     return (
         <div>
-          <Box
+          <Stack direction="column" alignItems="center"
             component="form"
             sx={{'& > :not(style)': { m: 1, width: '25ch' },}}
             noValidate
@@ -26,7 +25,15 @@ const Home = () => {
               id="outlined-basic" 
               label="Search" 
               variant="outlined" 
-              sx={{color: "secondary"}}
+              sx={{"& .MuiFormLabel-root": {
+                    color: 'success.main'
+                },"& .MuiFormLabel-root.Mui-focused": {
+                    color: 'success.main'
+                }, "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "#2e8b57"
+                  }
+                }}}
               value={input}
               onChange={
                 (e:any) =>{
@@ -34,7 +41,7 @@ const Home = () => {
                   dispatch(search(input))
                 }}
               />
-        </Box>
+        </Stack>
           {loading ? <h1>Loading...</h1>:<Countries countries={renderedCountries}/>}
         </div>
     );

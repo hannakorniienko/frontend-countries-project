@@ -12,9 +12,9 @@ const App = () => {
     <BrowserRouter>
       <NavBar />
       <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path=":name" element={<SingleCountry />} />
-      <Route path="/fav" element={<FavCountries />} />
+      <Route path="/bof-frontend-project-basic" element={<Home />}/>
+      <Route path="/bof-frontend-project-basic/:name" element={<SingleCountry />} />
+      <Route path="/bof-frontend-project-basic/fav" element={<FavCountries />} />
       </Routes>
     </BrowserRouter>
   );

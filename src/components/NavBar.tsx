@@ -47,7 +47,7 @@ const NavBar = () => {
           variant="h6"
           noWrap
           component="a"
-          href="/"
+          href="/bof-frontend-project-basic"
           sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },
@@ -63,7 +63,7 @@ const NavBar = () => {
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
               onClick={handleCloseNavMenu}
-              href="/fav"
+              href="/bof-frontend-project-basic/fav"
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               Favorite countries

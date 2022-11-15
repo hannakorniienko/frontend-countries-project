@@ -51,7 +51,7 @@ const Countries = ({countries}: Props) => {
           {countries.map(item => (
               <TableRow hover role="checkbox" tabIndex={-1} key={item.name.common}>
                   <TableCell><img style={{ width: 100 }} src={item.flags.png} alt="flag" /></TableCell>
-                  <TableCell><Link to= {`/${item.name.common}`}>{item.name.common}</Link></TableCell>
+                  <TableCell><Link to= {`/bof-frontend-project-basic/${item.name.common}`}>{item.name.common}</Link></TableCell>
                   <TableCell>{item.capital?.map(capital => (<p>{capital}</p>))}</TableCell>
                   <TableCell>{item.population}</TableCell>
                   <TableCell>{item.continents?.map(continents => (<p>{continents}</p>))}</TableCell>
@@ -68,15 +68,6 @@ const Countries = ({countries}: Props) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={countries.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
     </Paper>
   )
 }

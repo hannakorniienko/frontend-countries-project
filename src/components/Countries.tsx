@@ -19,6 +19,8 @@ import '../styles/countries.css'
 
 const Countries = ({countries}: Props) => {
   const dispatch = useAppDispatch()
+  const sortCountriesByName = () => dispatch(sortbyName())
+  const sortCountriesByPopulation = () => dispatch(sortbyPopulation())
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', }}>
       <TableContainer>
@@ -26,9 +28,9 @@ const Countries = ({countries}: Props) => {
           <TableHead>
             <TableRow>
               <TableCell>Flag</TableCell>
-              <TableCell><button id='sort-btn' onClick={() => dispatch(sortbyName())}>Name</button></TableCell>
+              <TableCell><button id='sort-btn' onClick={() => sortCountriesByName()}>Name</button></TableCell>
               <TableCell>Capital</TableCell>
-              <TableCell><button id='sort-btn' onClick={() => dispatch(sortbyPopulation())}>Population</button></TableCell>
+              <TableCell><button id='sort-btn' onClick={() => sortCountriesByPopulation()}>Population</button></TableCell>
               <TableCell>Continent</TableCell>
               <TableCell>Currencies</TableCell>
               <TableCell>Languages</TableCell>

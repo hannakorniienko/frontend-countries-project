@@ -43,7 +43,7 @@ const Home = () => {
                 }}
               />
         </Stack>
-          {loading ? <h1>Loading...</h1>:<Countries countries={renderedCountries}/>}
+          {loading ? <h2>Loading...</h2>:<Countries countries={renderedCountries}/>}
         </div>
     );
   }

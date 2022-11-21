@@ -15,7 +15,9 @@ const favcountriesSlice = createSlice({
     initialState,
     reducers:{
         add: (state, action: PayloadAction<Country>) => {
-            state.countries.push(action.payload)
+            if(!state.countries.includes(action.payload)){
+                state.countries.push(action.payload)
+            }
         },
         remove: (state, action: PayloadAction<string>) => {
             state.countries = state.countries.filter(

@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Country } from "../../types/countries";
 
 export type FavCountriesState = {
-    countries: Country[]
+    favCountriesList: Country[]
 }
 
 const initialState: FavCountriesState = {
-    countries: []
+    favCountriesList: []
 }
 
 
@@ -15,12 +15,12 @@ const favcountriesSlice = createSlice({
     initialState,
     reducers:{
         add: (state, action: PayloadAction<Country>) => {
-            if(!state.countries.includes(action.payload)){
-                state.countries.push(action.payload)
+            if(!state.favCountriesList.includes(action.payload)){
+                state.favCountriesList.push(action.payload)
             }
         },
         remove: (state, action: PayloadAction<string>) => {
-            state.countries = state.countries.filter(
+            state.favCountriesList = state.favCountriesList.filter(
             (item) => item.name.common !== action.payload
             )
         }

@@ -12,15 +12,23 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Stack from '@mui/material/Stack';
 
 import { sortbyName, sortbyPopulation } from '../redux/reducers/countries'
-import { add } from '../redux/reducers/favCountries'
-import { useAppDispatch } from '../redux/hooks'
-import { Props } from '../types/countries'
+import { add, remove } from '../redux/reducers/favCountries'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { Country, Props } from '../types/countries'
 import '../styles/countries.css'
 
 const Countries = ({countries}: Props) => {
   const dispatch = useAppDispatch()
   const sortCountriesByName = () => dispatch(sortbyName())
   const sortCountriesByPopulation = () => dispatch(sortbyPopulation())
+  const { favCountriesList } = useAppSelector((state) => state.favCountries);
+  const isFavorite = (item: Country) => {
+    if (favCountriesList.includes(item)) {
+      dispatch(remove(item.name.common));
+    } else {
+      dispatch(add(item));
+    }
+  };
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', }}>
       <TableContainer>
@@ -48,7 +56,7 @@ const Countries = ({countries}: Props) => {
                   <TableCell>{Object.values(item.currencies).map((item: any) => (<p key={item}>{item.name}</p>))}</TableCell>
                   <TableCell>{Object.values(item.languages).map((item: any) => (<p key={item}>{item}</p>))}</TableCell>
                   <TableCell>
-                    <Stack direction="row" spacing={1} onClick={() => {dispatch(add(item))}}>
+                    <Stack direction="row" spacing={1} onClick={() => isFavorite(item)}>
                       <IconButton aria-label="favorite">
                         <FavoriteIcon />
                       </IconButton>

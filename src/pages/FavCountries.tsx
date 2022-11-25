@@ -4,11 +4,11 @@ import { useAppSelector } from '../redux/hooks'
 import '../styles/favCountry.css'
 
 const FavCountries = () => {
-    const {countries} = useAppSelector((state) => state.favCountries)
+    const {favCountriesList} = useAppSelector((state) => state.favCountries)
     return (
-        <div id='fav-country'>{countries.map(item => (
+        <div id='fav-country'>{favCountriesList.map(item => (
             <ul key={item.name.common}>
-                <li>{item.name.common}</li>
+                <li><img style={{ width: 20 }} src={item.flags.png} alt="flag" /> {item.name.common}</li>
             </ul>
         ))}
         </div>)

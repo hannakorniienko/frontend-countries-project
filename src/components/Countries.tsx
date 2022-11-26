@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Stack from '@mui/material/Stack';
 
 import { sortbyName, sortbyPopulation } from '../redux/reducers/countries'
@@ -22,7 +23,7 @@ const Countries = ({countries}: Props) => {
   const sortCountriesByName = () => dispatch(sortbyName())
   const sortCountriesByPopulation = () => dispatch(sortbyPopulation())
   const { favCountriesList } = useAppSelector((state) => state.favCountries);
-  const isFavorite = (item: Country) => {
+  const favoriteAction = (item: Country) => {
     if (favCountriesList.includes(item)) {
       dispatch(remove(item.name.common));
     } else {
@@ -56,9 +57,9 @@ const Countries = ({countries}: Props) => {
                   <TableCell>{Object.values(item.currencies).map((item: any) => (<p key={item}>{item.name}</p>))}</TableCell>
                   <TableCell>{Object.values(item.languages).map((item: any) => (<p key={item}>{item}</p>))}</TableCell>
                   <TableCell>
-                    <Stack direction="row" spacing={1} onClick={() => isFavorite(item)}>
+                    <Stack direction="row" spacing={1} onClick={() => favoriteAction(item)}>
                       <IconButton aria-label="favorite">
-                        <FavoriteIcon />
+                      {favCountriesList.includes(item) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                       </IconButton>
                     </Stack>
                   </TableCell>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
 
 const NavBar = () => {
-  return (
+    return (
     <div className='navbar'>
       <div className='item' id='home'><Link to={"bof-frontend-project-basic"}>
         COUNTRIES</Link>

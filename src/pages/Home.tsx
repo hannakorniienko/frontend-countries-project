@@ -12,8 +12,10 @@ const Home = () => {
     const {loading, countries, filtered} = useAppSelector((state) => state.countries)
     const [input, setInput ]= useState("")
     useEffect(() => {
-      dispatch(fetchCountries())
-    }, [dispatch])
+      if(!countries.length){
+        dispatch(fetchCountries())
+      }
+    }, [countries.length, dispatch])
     let renderedCountries = filtered.length > 0 ? filtered : countries
     return (
         <div>

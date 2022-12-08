@@ -1,3 +1,10 @@
+import Paper from '@mui/material/Paper/Paper'
+import Table from '@mui/material/Table/Table'
+import TableBody from '@mui/material/TableBody/TableBody'
+import TableCell from '@mui/material/TableCell/TableCell'
+import TableContainer from '@mui/material/TableContainer/TableContainer'
+import TableHead from '@mui/material/TableHead/TableHead'
+import TableRow from '@mui/material/TableRow/TableRow'
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
@@ -23,42 +30,50 @@ const SingleCountry = () => {
 
   return (
     <div id='single-country'>
-        <ul>
-            <li><img style={{ width: 100 }} src={country[0].flags.png} alt="flag" /></li>
-            <li>Country:</li>
-            <ul>
-              <li>{country[0].name.common}</li>
-            </ul>
-            <li>Capital:</li>
-            <ul>{country[0].capital?.map(capital => (
-              <li>{capital}</li>))}
-            </ul>
-            <li>Continent:</li>
-            <ul>{country[0].continents?.map(continents => (
-              <li>{continents}</li>))}
-            </ul>
-            <li>Population:</li>
-            <ul>
-              <li>{country[0].population}</li>
-            </ul>
-            <li>Area:</li>
-            <ul>
-              <li>{country[0].area} km<sup>2</sup></li>
-            </ul>
-            <li>Language:</li>
-            <ul>
-            {Object.values(country[0].languages).map((item: any) => (
-                  <li key={item}>{item}</li>
-                ))}
-            </ul>
-            <li>Currency:</li>
-            <ul>
-            {Object.values(country[0].currencies).map((item: any) => (
-                  <li key={item}>{item.name}</li>
-                ))}
-            </ul>
-            
-        </ul>
+      <Paper sx={{width: 'fit-content', overflow: 'hidden', margin: 'auto', marginTop: '5px' }}>
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{textAlign: 'center', fontWeight: 'bold'}} colSpan={2}>
+                  <img style={{ width: 100 }} src={country[0].flags.png} alt="flag" /><br />
+                  {country[0].name.common}
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell>Capital:</TableCell>
+                    <TableCell>{country[0].capital?.map(capital => (<div>{capital}</div>))}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell>Continent:</TableCell>
+                    <TableCell>{country[0].continents?.map(continents => (<div>{continents}</div>))}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell>Population:</TableCell>
+                    <TableCell>{country[0].population}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell>Area:</TableCell>
+                    <TableCell>{country[0].area} km<sup>2</sup></TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell>Language:</TableCell>
+                    <TableCell>{Object.values(country[0].languages).map((item: any) => (
+                      <div key={item}>{item}</div>))}
+                    </TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell>Currency:</TableCell>
+                    <TableCell>{Object.values(country[0].currencies).map((item: any) => (
+                      <div key={item}>{item.name}</div>))}
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper> 
     </div>
   )
 }

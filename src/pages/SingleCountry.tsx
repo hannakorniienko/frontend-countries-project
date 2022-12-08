@@ -36,7 +36,7 @@ const SingleCountry = () => {
             <TableHead>
               <TableRow>
                 <TableCell sx={{textAlign: 'center', fontWeight: 'bold'}} colSpan={2}>
-                  <img style={{ width: 100 }} src={country[0].flags.png} alt="flag" /><br />
+                  <img style={{ width: 100, boxShadow:'0px 0px 6px 2px #dbdbdb'}} src={country[0].flags.png} alt="flag" /><br />
                   {country[0].name.common}
                 </TableCell>
               </TableRow>

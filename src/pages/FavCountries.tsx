@@ -25,7 +25,7 @@ const FavCountries = () => {
             <TableBody>
             {favCountriesList.map(item => (
                 <TableRow hover role="checkbox" tabIndex={-1} key={item.name.common}>
-                    <TableCell><img style={{ width:50, boxShadow:'0px 0px 3px 1px gray'}} src={item.flags.png} alt="flag" /></TableCell>
+                    <TableCell><img style={{ width:50, boxShadow:'0px 0px 3px 1px #dbdbdb'}} src={item.flags.png} alt="flag" /></TableCell>
                     <TableCell><Link to= {`/bof-frontend-project-basic/${item.name.common}`}>{item.name.common}</Link></TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={1} onClick={() => {dispatch(remove(item.name.common))}}>

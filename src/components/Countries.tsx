@@ -17,6 +17,7 @@ import { add, remove } from '../redux/reducers/favCountries'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { Country, Props } from '../types/countries'
 import '../styles/countries.css'
+import { TableSortLabel } from '@mui/material';
 
 const Countries = ({countries}: Props) => {
   const dispatch = useAppDispatch()
@@ -37,9 +38,13 @@ const Countries = ({countries}: Props) => {
           <TableHead>
             <TableRow>
               <TableCell>Flag</TableCell>
-              <TableCell><button id='sort-btn' onClick={() => sortCountriesByName()}>Name</button></TableCell>
+              <TableCell>
+                <TableSortLabel onClick={() => {dispatch(sortCountriesByName());}}>Name</TableSortLabel>
+              </TableCell>
               <TableCell>Capital</TableCell>
-              <TableCell><button id='sort-btn' onClick={() => sortCountriesByPopulation()}>Population</button></TableCell>
+              <TableCell>
+                <TableSortLabel onClick={() => {dispatch(sortCountriesByPopulation());}}>Population</TableSortLabel>
+                </TableCell>
               <TableCell>Continent</TableCell>
               <TableCell>Currencies</TableCell>
               <TableCell>Languages</TableCell>

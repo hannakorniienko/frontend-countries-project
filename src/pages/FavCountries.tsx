@@ -12,7 +12,7 @@ const FavCountries = () => {
     const {favCountriesList} = useAppSelector((state) => state.favCountries)
     const dispatch = useAppDispatch()
     return (
-        favCountriesList.length === 0 ? <div id='empt-fav-list'></div> :
+        favCountriesList.length === 0 ? <h4 id='empt-fav-list'>The list is empty!</h4> :
         <Paper sx={{width: 'fit-content', overflow: 'hidden', margin: 'auto', marginTop: '5px' }}>
         <TableContainer>
           <Table>

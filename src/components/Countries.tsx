@@ -54,7 +54,7 @@ const Countries = ({countries}: Props) => {
           <TableBody>
           {countries.map(item => (
               <TableRow hover role="checkbox" tabIndex={-1} key={item.name.common}>
-                  <TableCell><img style={{ width: 100, boxShadow:'0px 0px 6px 2px #dbdbdb'}} src={item.flags.png} alt="flag" /></TableCell>
+                  <TableCell><Link to= {`/bof-frontend-project-basic/${item.name.common}`}><img style={{ width: 100, boxShadow:'0px 0px 6px 2px #dbdbdb'}} src={item.flags.png} alt="flag" /></Link></TableCell>
                   <TableCell><Link to= {`/bof-frontend-project-basic/${item.name.common}`}>{item.name.common}</Link></TableCell>
                   <TableCell>{item.capital?.map(capital => (<p>{capital}</p>))}</TableCell>
                   <TableCell>{item.population}</TableCell>

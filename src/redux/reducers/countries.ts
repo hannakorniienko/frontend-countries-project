@@ -1,13 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Country } from "../../types/countries";
-
-export type CountriesState = {
-    countries: Country[]
-    filtered: Country[]
-    loading: boolean
-    error: boolean
-    country: Country[]
-}
+import { CountriesState, Country } from "../../types/countries";
 
 const initialState: CountriesState = {
     countries: [],
@@ -16,7 +8,6 @@ const initialState: CountriesState = {
     error: false,
     country: []
 }
-
 
 const countriesSlice = createSlice({
     name: "countries",

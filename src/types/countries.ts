@@ -25,3 +25,11 @@ export interface Country {
 export type Props = {
     countries: Country[]
   }
+
+  export type CountriesState = {
+    countries: Country[]
+    filtered: Country[]
+    loading: boolean
+    error: boolean
+    country: Country[]
+}

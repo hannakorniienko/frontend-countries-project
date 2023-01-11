@@ -126,7 +126,7 @@ const Countries = ({countries}: Props) => {
     <Paper sx={{ width: 'length', overflow: 'hidden', margin:'5px' }}>
       <TableContainer>
         <Table>
-          <TableHead>
+          <TableHead sx={{ backgroundColor:'#F5F5F5'}}>
             <TableRow>
               <TableCell>Flag</TableCell>
               <TableCell>

@@ -11,16 +11,17 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Stack from '@mui/material/Stack';
+import { Box, TableFooter, TablePagination, TableSortLabel, useTheme } from '@mui/material';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import LastPageIcon from '@mui/icons-material/LastPage';
 
 import { sortbyName, sortbyPopulation } from '../redux/reducers/countries'
 import { add, remove } from '../redux/reducers/favCountries'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { Country, Props } from '../types/countries'
 import '../styles/countries.css'
-import { Box, TableFooter, TablePagination, TableSortLabel, useTheme } from '@mui/material';
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import LastPageIcon from '@mui/icons-material/LastPage';
+
 
 interface TablePaginationActionsProps {
   count: number;
